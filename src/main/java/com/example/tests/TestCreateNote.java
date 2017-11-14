@@ -13,10 +13,10 @@ public class TestCreateNote extends TestBase {
     @Test
 
     public void toCreateNote() throws Exception {
-        openSite();
-        logIn(loginData);
-        openNotes();
-        newNote(noteData);
-        logOut();
+        app.getNavigation().openSite();
+        app.getAuth().logIn(loginData);
+        app.getNavigation().openNotes();
+        app.getNotes().newNote(noteData);
+        app.getAuth().logOut();
     }
 }
