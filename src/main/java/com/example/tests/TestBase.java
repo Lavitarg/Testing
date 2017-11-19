@@ -8,10 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
-    private WebDriver driver;
-    private String baseUrl;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
+
     public ApplicationManager app;
 
 
@@ -26,10 +23,7 @@ public class TestBase {
     @After
     public void tearDown() throws Exception {
         app.Stop();
-        String verificationErrorString = verificationErrors.toString();
-        if (!"".equals(verificationErrorString)) {
-            fail(verificationErrorString);
-        }
+
     }
 
 }

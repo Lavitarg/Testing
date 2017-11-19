@@ -21,4 +21,14 @@ public class NoteHelper extends HelperBase {
         driver.findElement(By.linkText("Создать")).click();
         Thread.sleep(1000);
     }
+    public void deleteNote (NoteData noteData) throws Exception{
+        driver.findElement(By.cssSelector("span")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//a["+noteData.noteNumber+"]/div")).click();
+        driver.findElement(By.xpath("//a["+noteData.noteNumber+"]/div/span/span/span/img")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("dele")).click();
+    }
+
 }
+

@@ -17,7 +17,6 @@ public class NavigationHelper extends HelperBase {
 
     public void openSite() throws Exception {
         driver.get(baseUrl + "/index.php");
-       // driver.navigate().to("https://listend.ru");
     }
 
     public void openNotes() throws Exception{
