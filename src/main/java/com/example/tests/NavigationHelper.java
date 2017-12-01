@@ -17,6 +17,7 @@ public class NavigationHelper extends HelperBase {
 
     public void openSite() throws Exception {
         driver.get(baseUrl + "/index.php");
+       // driver.findElement(By.linkText("Понятно")).click();
     }
 
     public void openNotes() throws Exception{

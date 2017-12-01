@@ -16,6 +16,7 @@ public class TestBase {
     public void setUp() throws Exception {
 
         app = new ApplicationManager();
+        app.getNavigation().openSite();
     }
 
 
