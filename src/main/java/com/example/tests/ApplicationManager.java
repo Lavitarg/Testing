@@ -49,7 +49,7 @@ public class ApplicationManager {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\Марс\\Downloads\\chromedriver_win32\\Chromedriver.exe");
         driver = new ChromeDriver();
         baseUrl = "https://listsend.ru";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         StringBuffer verificationErrors = new StringBuffer();
         navigation = new NavigationHelper(this, baseUrl);
         auth = new LogInHelper(this);

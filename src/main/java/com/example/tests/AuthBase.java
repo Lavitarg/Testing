@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AuthBase extends TestBase {
 
     String login;
-    LoginData loginData = new LoginData("sermarsel@mail.ru", "Password1234", "Lavi") ;
+    LoginData loginData = new LoginData("sermarsel@mail.ru", "Boosters00", "Lavi") ;
 
     private  WebDriver driver;
 

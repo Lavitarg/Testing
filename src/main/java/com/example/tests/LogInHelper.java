@@ -15,7 +15,7 @@ public class LogInHelper extends HelperBase {
     }
 
     public void logIn(LoginData loginData) throws Exception {
-        Thread.sleep(1000);
+        Thread.sleep(100);
         driver.findElement(By.name("email")).clear();
         driver.findElement(By.name("email")).sendKeys(loginData.login);
         driver.findElement(By.name("pass")).clear();
@@ -35,15 +35,19 @@ public class LogInHelper extends HelperBase {
 
         try {
             driver.findElement(By.linkText("Личный кабинет")).click();
+            Thread.sleep(100);
+            driver.findElement(By.id("ds")).click();
+            Thread.sleep(100);
+            driver.findElement(By.id("log-in")).getAttribute("value").equals(loginData.login);
 
-            List<WebElement> alltags = driver.findElement(By.className("main")).findElements(By.tagName("p"));
-
-            System.out.println(alltags.get(4));
-            alltags.get(4).equals(loginData.nickname);
 
             return true;
 
         } catch (NoSuchElementException e) {
+            System.out.println("nse");
+            return false;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -60,6 +64,5 @@ public class LogInHelper extends HelperBase {
             return false;
         }
     }
-
 
 }

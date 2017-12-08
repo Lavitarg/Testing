@@ -11,9 +11,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CorrectAuthTest extends TestBase {
 
-    LoginData loginData = new LoginData("sermarsel@mail.ru", "Password1234", "Lavi" );
+    LoginData loginData = new LoginData("sermarsel@mail.ru", "Boosters00", "Lavi" );
+    LoginData loginData1 = new LoginData("sermarsel@mail.ru", "12345", "Lavi" );
 
- /*   @Test
+    @Test
+
 
     public void doAuthTest1() throws Exception {
 
@@ -21,17 +23,21 @@ public class CorrectAuthTest extends TestBase {
 
         app.getAuth().logIn(loginData);
 
-        Assert.assertTrue(app.getAuth().isLoggedIn());
+        Assert.assertTrue(app.getAuth().isLoggedIn(loginData));
 
     }
-*/
+
     @Test
+
+
 
     public void doAuthTest2 () throws Exception{
 
         app.getAuth().logOut();
 
-        Assert.assertTrue(app.getAuth().isLoggedIn(loginData));
+        app.getAuth().logIn(loginData1);
+
+        Assert.assertFalse(app.getAuth().isLoggedIn());
 
     }
 
