@@ -15,12 +15,20 @@ public class LogInHelper extends HelperBase {
     }
 
     public void logIn(LoginData loginData) throws Exception {
-        Thread.sleep(100);
-        driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(loginData.login);
-        driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys(loginData.password);
-        driver.findElement(By.name("ready")).click();
+        if (isLoggedIn() == false){
+            Thread.sleep(100);
+            driver.findElement(By.name("email")).clear();
+            driver.findElement(By.name("email")).sendKeys(loginData.login);
+            driver.findElement(By.name("pass")).clear();
+            driver.findElement(By.name("pass")).sendKeys(loginData.password);
+            driver.findElement(By.name("ready")).click();
+        }
+        else  {
+            if (isLoggedIn(loginData)== false){
+                logOut();
+                logIn(loginData);
+            }
+        }
     }
 
 
@@ -40,7 +48,6 @@ public class LogInHelper extends HelperBase {
             Thread.sleep(100);
             driver.findElement(By.id("log-in")).getAttribute("value").equals(loginData.login);
 
-
             return true;
 
         } catch (NoSuchElementException e) {
@@ -48,6 +55,8 @@ public class LogInHelper extends HelperBase {
             return false;
         } catch (InterruptedException e) {
             e.printStackTrace();
+            return false;
+        } catch (ElementNotVisibleException e){
             return false;
         }
     }
